@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Blog</title>
-</head>
-<body>
-    <h1>Список постів</h1>
-    <ul>
-        {% for post in posts %}
-            <li><strong>{{ post.title }}</strong> — {{ post.published_date }}</li>
-        {% empty %}
-            <li>Поки що немає постів</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+<h1>Усі пости</h1>
+<ul>
+  {% for post in posts %}
+    <li>
+      <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> від {{ post.author.name }}
+    </li>
+  {% endfor %}
+</ul>
